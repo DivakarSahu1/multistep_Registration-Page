@@ -33,7 +33,7 @@ Complete Registration:
 
 Submit the form to see the success message and celebrate your registration!
 🎥 Live Demo
-Check out the live demo of the project here ().
+Check out the live demo of the project here (https://multistep-registration.netlify.app)
 
 🎨 Design Highlights
 Gradient Background: A stunning gradient background for a modern and vibrant look.
