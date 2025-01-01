@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindustani Fitness Club Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div id="welcome-video">
+            <video width="100%" controls>
+                <source src="welcome.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <button onclick="showForm()">Get Started</button>
+        </div>
+        <div id="registration-form" style="display:none;">
+            <div id="form-steps">
+                <div class="step active" id="step1">
+                    <h2 class="blinking-text">Personal Information</h2>
+                    <input type="text" id="name" placeholder="Full Name" required>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="date" id="dob" placeholder="Date of Birth" required>
+                    <select id="gender" required>
+                        <option value="" disabled selected>Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <button class="next-btn" onclick="nextStep(2)">Next</button>
+                </div>
+                <div class="step" id="step2">
+                    <h2 class="blinking-text">Contact Information</h2>
+                    <select id="country-code" required>
+                        <option value="+91">India (+91)</option>
+                        <option value="+977">Nepal (+977)</option>
+                        <option value="+880">Bangladesh (+880)</option>
+                        <option value="+94">Sri Lanka (+94)</option>
+                        <option value="+960">Maldives (+960)</option>
+                        <option value="+1">USA (+1)</option>
+                        <option value="+971">UAE (+971)</option>
+                        <option value="+975">Bhutan (+975)</option>
+                    </select>
+                    <input type="tel" id="contact" placeholder="Contact Number" required>
+                    <button class="prev-btn" onclick="nextStep(1)">Previous</button>
+                    <button class="next-btn" onclick="sendOTP()">Send OTP</button>
+                </div>
+                <div class="step" id="step3">
+                    <h2 class="blinking-text">Verify OTP</h2>
+                    <input type="text" id="otp" placeholder="Enter OTP" required>
+                    <button class="prev-btn" onclick="nextStep(2)">Previous</button>
+                    <button class="next-btn" onclick="verifyOTP()">Verify OTP</button>
+                </div>
+                <div class="step" id="step4">
+                    <h2 class="blinking-text">Fitness Goals</h2>
+                    <input type="text" id="goals" placeholder="Your Fitness Goals" required>
+                    <button class="prev-btn" onclick="nextStep(3)">Previous</button>
+                    <button class="next-btn" onclick="nextStep(5)">Next</button>
+                </div>
+                <div class="step" id="step5">
+                    <h2 class="blinking-text">Choose Your Plan</h2>
+                    <select id="plan" required>
+                        <option value="" disabled selected>Select Plan</option>
+                        <option value="basic">Basic</option>
+                        <option value="premium">Premium</option>
+                        <option value="vip">VIP</option>
+                    </select>
+                    <button class="prev-btn" onclick="nextStep(4)">Previous</button>
+                    <button class="submit-btn" onclick="submitForm()">Complete Registration</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OTP Popup -->
+    <div id="otp-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h3>OTP Sent</h3>
+            <p>An OTP has been sent to your contact number. Please enter it below to verify your registration.</p>
+            <input type="text" id="popup-otp" placeholder="Enter OTP">
+            <button onclick="verifyPopupOTP()">Verify OTP</button>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div id="success-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeSuccessPopup()">&times;</span>
+            <h3>Registration Successful</h3>
+            <p>Congratulations! Your registration is complete.</p>
+            <button onclick="goHome()">Go to Home</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
